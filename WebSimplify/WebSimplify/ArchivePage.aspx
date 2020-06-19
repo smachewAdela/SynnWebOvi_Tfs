@@ -5,10 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="spageheader">ארכיון מסמכים</div>
+    <div class="menubuttoncontainer" id="dvWorkHours" runat="server">
+        <asp:FileUpload ID="FileUploadControl" runat="server" CssClass="" Visible="true" />
+    </div>
+
     <div class="row" id="trdic" runat="server">
-
-
-
         <div class=" col-3">
         </div>
         <div class=" col-6">
@@ -26,11 +27,6 @@
                         <asp:TemplateField HeaderText="תיאור">
                             <ItemTemplate>
                                 <asp:TextBox runat="server" ID="txIdesc" CssClass="gridtextinput"></asp:TextBox>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="בחר קובץ">
-                            <ItemTemplate>
-                                <asp:FileUpload ID="FileUploadControl" runat="server" CssClass="" Visible="true" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText=" הוספה ">
@@ -56,9 +52,9 @@
             <asp:GridView ID="gvDocs" runat="server"
                 OnRowDataBound="gvDocs_RowDataBound" AllowPaging="False"
                 CssClass="synngridstyled " ItemStyle-Width="100%" ControlStyle-Width="100%"
-                AutoGenerateColumns="false" >
+                AutoGenerateColumns="false">
                 <Columns>
-                      <asp:TemplateField HeaderText=" שם מסמך">
+                    <asp:TemplateField HeaderText=" שם מסמך">
                         <ItemTemplate>
                             <asp:Label runat="server" ID="lblName"></asp:Label>
                         </ItemTemplate>
@@ -70,14 +66,14 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="תאריך יצירה" ControlStyle-CssClass="">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="lblCreation"  ></asp:Label>
+                            <asp:Label runat="server" ID="lblCreation"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="עריכה">
-                            <ItemTemplate>
-                                <asp:ImageButton runat="server" ID="btnDownload" OnCommand="btnDownload_Command" CssClass="gridbutton" ImageUrl="Img/edit.png"></asp:ImageButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:ImageButton runat="server" ID="btnDownload" OnCommand="btnDownload_Command" CssClass="gridbutton" ImageUrl="Img/download.png"></asp:ImageButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

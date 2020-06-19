@@ -78,7 +78,7 @@ namespace WebSimplify
         {
             var row = (sender as ImageButton).NamingContainer as GridViewRow;
 
-            var FileUploadControl = ((FileUpload)row.FindControl("FileUploadControl"));
+            //var FileUploadControl = ((FileUpload)row.FindControl("FileUploadControl"));
 
             if (FileUploadControl.HasFile)
             {
