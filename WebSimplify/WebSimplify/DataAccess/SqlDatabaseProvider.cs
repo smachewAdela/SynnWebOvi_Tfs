@@ -21,7 +21,7 @@ namespace SynnWebOvi
         internal IDbGenericData IDbGenericData = null;
         internal IDbGoogle IDbGoogle = null;
         internal IDbCalendar IDbCalendar = null;
-        
+        internal IDbDocument IDbDocument = null;
 
         internal LoggedUser LoggedUser = null;
 
@@ -151,6 +151,16 @@ namespace SynnWebOvi
                 if (IDbMig == null)
                     IDbMig = new SqlDbMigration(_connectionString);
                 return IDbMig;
+            }
+        }
+
+        public IDbDocument DbDocument
+        {
+            get
+            {
+                if (IDbDocument == null)
+                    IDbDocument = new SqlDbDocument(_connectionString);
+                return IDbDocument;
             }
         }
 

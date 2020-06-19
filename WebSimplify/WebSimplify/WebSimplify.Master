@@ -34,7 +34,7 @@
                 
                 <li><a class="xpage" href="HealthCarePage.aspx" id="navHC" runat="server">יומן בריאות</a></li>
                 <li><a class="xpage" href="DepositsPage.aspx" id="navdepos" runat="server">הפקדות</a></li>
-
+                <li><a class="xpage" href="ArchivePage.aspx" id="navdocs" runat="server">מסמכים</a></li>
                 <li><a class="xpage" href="AppSettingsPage.aspx" id="navsys" runat="server">העדפות משתמש</a></li>
                 <li><a class="xpage" href="UsersManagment.aspx" id="navusers" runat="server">משתמשים</a></li>
                 <li><a class="xpage" href="GenericDataPage.aspx" id="navgd" runat="server">נתוני טבלאות</a></li>

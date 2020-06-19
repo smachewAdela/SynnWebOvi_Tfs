@@ -143,6 +143,13 @@ namespace SynnWebOvi
         List<DictionaryItem> PerformSearch(DictionarySearchParameters p);
     }
 
+    public interface IDbDocument
+    {
+        ArchiveDocument GetDocumentArchiveFull(int docId);
+        List<ArchiveDocument> GetDocuments(DocumentSearchParameters documentSearchParameters);
+        void Upsert(ArchiveDocument doc);
+    }
+
     public class BaseSearchParameters
     {
         public LoggedUser CurrentUser { get; set; }
@@ -407,6 +414,16 @@ namespace SynnWebOvi
 
         public int? Id { get; set; }
 
+    }
+
+    public class DocumentSearchParameters : BaseSearchParameters
+    {
+        public string Key { get; set; }
+        public string Value { get; set; }
+        public string SearchText { get; set; }
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
+        public int? ArchiveDocumentId { get; internal set; }
     }
 
     public class DictionarySearchParameters : BaseSearchParameters

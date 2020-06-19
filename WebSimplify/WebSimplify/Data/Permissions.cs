@@ -55,6 +55,9 @@ namespace WebSimplify
         [PageLink("navdepos")]
         [Description("  הפקדות")]
         Deposits,
+        [PageLink("navdocs")]
+        [Description("  מסמכים")]
+        Archive,
     }
 
     public class PageLinkAttribute : Attribute

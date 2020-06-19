@@ -35,6 +35,7 @@ namespace SynnWebOvi
             //public static string GenericData = "GenericData";
             public static string Log = "Log";
             public static string ThemeLog = "ThemeLog";
+            public static string ArchiveDocument = "ArchiveDocument";
             public static string WeddingItems = "WeddingItems"; // group
             public static string ShoppingItems = "ShoppingItems";  // group
             public static string ShiftsData = "ShiftsData"; // group
@@ -67,6 +68,9 @@ namespace SynnWebOvi
         IDbMoney DbMoney { get; }
         IDbShifts DbShifts { get; }
         IDbUserDictionary DbUserDictionary { get; }
+
+        IDbDocument DbDocument { get; }
+
         LoggedUser CurrentUser { get; set; }
 
         IDbCalendar DbCalendar { get;}
@@ -189,6 +193,14 @@ namespace SynnWebOvi
         }
 
         public IDbGenericData DbGenericData
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IDbDocument DbDocument
         {
             get
             {

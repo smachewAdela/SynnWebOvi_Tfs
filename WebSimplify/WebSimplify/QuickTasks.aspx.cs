@@ -59,6 +59,8 @@ namespace WebSimplify
             QuickTask item = DBController.DbCalendar.Get(new QuickTasksSearchParameters { Id =  Convert.ToInt32(e.CommandArgument) }).First();
             item.Active = false;
             DBController.DbCalendar.Update(item);
+
+            RefreshGrids();
         }
 
         protected void btnSearch_ServerClick(object sender, EventArgs e)

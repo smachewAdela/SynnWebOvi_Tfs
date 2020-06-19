@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppSettingsPage.aspx" />
+    <Content Include="ArchivePage.aspx" />
     <Content Include="BkpWs.asmx" />
     <Content Include="CashLog.aspx" />
     <Content Include="Controls\LottoPoleSelector.ascx" />
@@ -149,6 +150,13 @@
     <Compile Include="AppSettingsPage.aspx.designer.cs">
       <DependentUpon>AppSettingsPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ArchivePage.aspx.cs">
+      <DependentUpon>ArchivePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArchivePage.aspx.designer.cs">
+      <DependentUpon>ArchivePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BackGroundData\BackgroundWorkerBase.cs" />
     <Compile Include="BackGroundData\BackgroundWorkerDispatcher.cs" />
     <Compile Include="BackGroundData\CalendarItemsBackgroundWorker.cs" />
@@ -170,8 +178,10 @@
     <Compile Include="Controls\LottoPoleSelector.ascx.designer.cs">
       <DependentUpon>LottoPoleSelector.ascx</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\SqlDbDocument.cs" />
     <Compile Include="DataAccess\SqlDbGenericData.cs" />
     <Compile Include="DataAccess\SqlDbGoogle.cs" />
+    <Compile Include="Data\ArchiveDocument.cs" />
     <Compile Include="Data\CalendarBackgroundWorkerLog.cs" />
     <Compile Include="Data\CalendarJob.cs" />
     <Compile Include="Data\CalendarJobsHelper.cs" />
@@ -232,6 +242,7 @@
     <Compile Include="Data\HealthLog.cs" />
     <Compile Include="Data\IMarkAble.cs" />
     <Compile Include="Data\JsonPointItem.cs" />
+    <Compile Include="Data\MimeHelper.cs" />
     <Compile Include="Data\MoneyMonthlyData.cs" />
     <Compile Include="Data\MonthlyMoneyTransaction.cs" />
     <Compile Include="Data\Parent.cs" />

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -385,15 +386,23 @@ namespace SynnWebOvi
 
         public void DownloadFile(string fileName, byte[] data)
         {
-            Response.ClearHeaders();
+            //Response.ClearHeaders();
+            //Response.Clear();
+            //Response.Buffer = true;
+            //Response.ContentType = MimeHelper.GetMimeType(fileName) ;
+            //Response.AddHeader("content-length", data.Length.ToString());
+            //Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
+            //Response.Write(data);
+            //Response.Flush();
+            //HttpContext.Current.ApplicationInstance.CompleteRequest();
+
             Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = "text/plain";
-            Response.AddHeader("content-length", data.Length.ToString());
+            MemoryStream ms = new MemoryStream(data);
+            Response.ContentType = MimeHelper.GetMimeType(fileName); 
             Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
-            Response.Write(data);
-            Response.Flush();
-            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            Response.Buffer = true;
+            ms.WriteTo(Response.OutputStream);
+            Response.End();
         }
     }
 
