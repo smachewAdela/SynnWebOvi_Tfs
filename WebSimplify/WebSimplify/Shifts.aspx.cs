@@ -55,7 +55,7 @@ namespace WebSimplify
         {
             var dbData = DBController.DbShifts.GetShifts(new ShiftsSearchParameters
             {
-                FromDate = DateTime.Now.StartOfWeek().Date,
+                FromDate = DateTime.Now.Date,
                 ToDate =  DateTime.Now.EndOfNextWeek().Date
             });
     

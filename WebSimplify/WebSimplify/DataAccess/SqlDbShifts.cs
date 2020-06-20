@@ -35,7 +35,7 @@ namespace WebSimplify
                 if (lsp.FromDate.HasValue)
                     AddSqlWhereField("Date", lsp.FromDate, ">=");
                 if (lsp.ToDate.HasValue)
-                    AddSqlWhereField("Date", lsp.ToDate, "<");
+                    AddSqlWhereField("Date", lsp.ToDate, "<=");
             if (lsp.IDate.HasValue)
                 AddSqlWhereField("Date", lsp.IDate);
 

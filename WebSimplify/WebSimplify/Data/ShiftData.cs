@@ -18,7 +18,13 @@ namespace WebSimplify.Data
         [Description("ערב")]
         Noon,
         [Description("לילה")]
-        Night
+        Night,
+        [Description("בוקר ערב")]
+        LongMorning,
+        [Description("לילה מוקדם")]
+        LongNight,
+        [Description("בוקר לילה")]
+        MorningAndNight,
     }
 
     [Serializable]
