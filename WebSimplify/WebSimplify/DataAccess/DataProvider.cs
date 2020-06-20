@@ -36,6 +36,7 @@ namespace SynnWebOvi
             public static string Log = "Log";
             public static string ThemeLog = "ThemeLog";
             public static string ArchiveDocument = "ArchiveDocument";
+            public static string CarArchiveDocument = "CarArchiveDocument";
             public static string WeddingItems = "WeddingItems"; // group
             public static string ShoppingItems = "ShoppingItems";  // group
             public static string ShiftsData = "ShiftsData"; // group

@@ -97,6 +97,7 @@
     <Content Include="AppSettingsPage.aspx" />
     <Content Include="ArchivePage.aspx" />
     <Content Include="BkpWs.asmx" />
+    <Content Include="CarLogPage.aspx" />
     <Content Include="CashLog.aspx" />
     <Content Include="Controls\LottoPoleSelector.ascx" />
     <Content Include="Controls\WsCalendar.ascx" />
@@ -165,6 +166,13 @@
     <Compile Include="BkpWs.asmx.cs">
       <DependentUpon>BkpWs.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CarLogPage.aspx.cs">
+      <DependentUpon>CarLogPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarLogPage.aspx.designer.cs">
+      <DependentUpon>CarLogPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CashLog.aspx.cs">
       <DependentUpon>CashLog.aspx</DependentUpon>
@@ -242,6 +250,7 @@
     <Compile Include="Data\DevTaskItem.cs" />
     <Compile Include="Data\GenericData.cs" />
     <Compile Include="Data\HealthLog.cs" />
+    <Compile Include="Data\ICar.cs" />
     <Compile Include="Data\IMarkAble.cs" />
     <Compile Include="Data\JsonPointItem.cs" />
     <Compile Include="Data\MimeHelper.cs" />

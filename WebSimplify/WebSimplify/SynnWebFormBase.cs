@@ -63,6 +63,8 @@ namespace SynnWebOvi
             }
         }
 
+      
+
         internal void ClearInputFields(List<HtmlInputControl> ctrs)
         {
             foreach (HtmlInputControl ctr in ctrs)
@@ -412,6 +414,16 @@ namespace SynnWebOvi
             return ((TextBox)row.FindControl(controlId)).Text; 
         }
 
+        public int? GetDropNullAbleValue(GridViewRow row, string controlId)
+        {
+            var cmd = ((DropDownList)row.FindControl(controlId));
+            if (cmd.SelectedValue.NotEmpty())
+            {
+                return cmd.SelectedValue.ToInteger();
+            }
+            return null;
+        }
+
         public void SetTextBoxValue(GridViewRow row, string controlId, string vallue)
         {
             ((TextBox)row.FindControl(controlId)).Text = vallue;
@@ -437,6 +449,11 @@ namespace SynnWebOvi
             var gv = (sender as GridView);
             gv.PageIndex = e.NewPageIndex;
             RefreshGrid(gv);
+        }
+
+        internal void DummyRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
         }
     }
 

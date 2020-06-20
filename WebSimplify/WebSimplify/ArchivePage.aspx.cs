@@ -58,6 +58,7 @@ namespace WebSimplify
 
         protected void gv_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            base.DummyRowDataBound(sender, e);
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 var dummyObj = e.Row.DataItem;

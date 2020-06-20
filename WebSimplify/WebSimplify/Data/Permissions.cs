@@ -58,6 +58,9 @@ namespace WebSimplify
         [PageLink("navdocs")]
         [Description("  מסמכים")]
         Archive,
+        [PageLink("navcars")]
+        [Description("  יומן רכב")]
+        CarLog,
     }
 
     public class PageLinkAttribute : Attribute

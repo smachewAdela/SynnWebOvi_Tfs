@@ -42,4 +42,19 @@ namespace WebSimplify
             Data = (byte[])Convert.FromBase64CharArray(data.ToArray(), 0, data.Length);
         }
     }
+
+    public class CarArchiveDocument : ArchiveDocument
+    {
+        public int CarId { get; set; }
+
+        public CarArchiveDocument()
+        {
+
+        }
+        public CarArchiveDocument(IDataReader data)
+        {
+            CarId = DataAccessUtility.LoadInt32(data, "CarId");
+            Load(data);
+        }
+    }
 }

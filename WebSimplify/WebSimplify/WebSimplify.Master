@@ -31,7 +31,9 @@
                 <li><a class="xpage" href="Shifts.aspx" id="navshifts" runat="server">משמרות</a></li>
                 <li><a class="xpage" href="Wedding.aspx" id="navwed" runat="server">חתונה</a></li>
                 <li><a class="xpage" href="Shopping.aspx" id="navshop" runat="server">קניות</a></li>
-                
+
+                <li><a class="xpage" href="CarLogPage.aspx" id="navcars" runat="server">יומן רכב  </a></li>
+
                 <li><a class="xpage" href="HealthCarePage.aspx" id="navHC" runat="server">יומן בריאות</a></li>
                 <li><a class="xpage" href="DepositsPage.aspx" id="navdepos" runat="server">הפקדות</a></li>
                 <li><a class="xpage" href="ArchivePage.aspx" id="navdocs" runat="server">מסמכים</a></li>

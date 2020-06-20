@@ -145,9 +145,12 @@ namespace SynnWebOvi
 
     public interface IDbDocument
     {
+        List<CarArchiveDocument> GetCarDocuments(DocumentSearchParameters sp);
+        CarArchiveDocument GetCarDocumentArchiveFull(int docId);
         ArchiveDocument GetDocumentArchiveFull(int docId);
         List<ArchiveDocument> GetDocuments(DocumentSearchParameters documentSearchParameters);
         void Upsert(ArchiveDocument doc);
+        void UpsertCarDoc(CarArchiveDocument doc);
     }
 
     public class BaseSearchParameters
@@ -423,6 +426,7 @@ namespace SynnWebOvi
         public int? ArchiveDocumentId { get; internal set; }
         public string SearchName { get; internal set; }
         public string SearchDescription { get; internal set; }
+        public int? SearchCarId { get; internal set; }
     }
 
     public class DictionarySearchParameters : BaseSearchParameters
