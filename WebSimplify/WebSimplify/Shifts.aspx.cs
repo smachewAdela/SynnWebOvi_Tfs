@@ -55,8 +55,8 @@ namespace WebSimplify
         {
             var dbData = DBController.DbShifts.GetShifts(new ShiftsSearchParameters
             {
-                FromDate = DateTime.Now.StartOfMonth().Date,
-                ToDate =  DateTime.Now.EndOfMonth().Date
+                FromDate = DateTime.Now.StartOfWeek().Date,
+                ToDate =  DateTime.Now.EndOfNextWeek().Date
             });
     
             return dbData.OrderBy(x => x.Date);
@@ -122,8 +122,15 @@ namespace WebSimplify
 
                 ((Label)e.Row.FindControl("lblDate")).Text = shift.Date.ToShortDateString();
                 ((Label)e.Row.FindControl("lblDay")).Text = shift.Date.HebrewDay();
-                ((Label)e.Row.FindControl("lblShift")).Text = shift.DaylyShift.GetDescription(); ;
+                ((Label)e.Row.FindControl("lblShift")).Text = shift.DaylyShift.GetDescription();
+                ((ImageButton)e.Row.FindControl("btnDelete")).CommandArgument = shift.Id.ToString();
             }
+        }
+
+        protected void btnDelete_Command(object sender, CommandEventArgs e)
+        {
+            DBController.DbShifts.Delete(e.CommandArgument.ToString().ToInteger());
+            RefreshGrid(gvShifts);
         }
     }
 }

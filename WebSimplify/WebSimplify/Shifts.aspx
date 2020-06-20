@@ -58,6 +58,11 @@
                             <asp:Label runat="server" ID="lblShift"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                          <asp:TemplateField HeaderText="הסר משמרת">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="btnDelete" OnCommand="btnDelete_Command" CssClass="gridbutton" ImageUrl="Img/dlt.png"></asp:ImageButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

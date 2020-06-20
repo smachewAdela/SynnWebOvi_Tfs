@@ -43,6 +43,11 @@ namespace WebSimplify
             return dt;
         }
 
+        public static DateTime EndOfNextWeek(this DateTime dt)
+        {
+            return dt.EndOfWeek().AddDays(7);
+        }
+
         public static bool InSameWeek(this DateTime dt, DateTime o)
         {
             return dt.StartOfWeek().Date == o.StartOfWeek().Date;
