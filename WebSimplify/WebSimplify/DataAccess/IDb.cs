@@ -418,12 +418,11 @@ namespace SynnWebOvi
 
     public class DocumentSearchParameters : BaseSearchParameters
     {
-        public string Key { get; set; }
-        public string Value { get; set; }
-        public string SearchText { get; set; }
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
         public int? ArchiveDocumentId { get; internal set; }
+        public string SearchName { get; internal set; }
+        public string SearchDescription { get; internal set; }
     }
 
     public class DictionarySearchParameters : BaseSearchParameters

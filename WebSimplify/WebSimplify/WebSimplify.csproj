@@ -121,6 +121,7 @@
     <Content Include="Img\locked.png" />
     <Content Include="Img\play-button.png" />
     <Content Include="Img\right-arrow.png" />
+    <Content Include="Img\search.png" />
     <Content Include="Img\synnlg.png" />
     <Content Include="Img\synnlg1.png" />
     <Content Include="js\synnJavaScripts.js" />

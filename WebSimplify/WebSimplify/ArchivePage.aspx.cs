@@ -32,6 +32,9 @@ namespace WebSimplify
             }
         }
 
+        public string SearchName { get; private set; }
+        public string SearchDescription { get; private set; }
+
         internal override string GetGridSourceMethodName(string gridId)
         {
             if (gridId == gvDocs.ID)
@@ -43,7 +46,13 @@ namespace WebSimplify
 
         public IEnumerable GetData()
         {
-            List<ArchiveDocument> docs =  DBController.DbDocument.GetDocuments(new DocumentSearchParameters { });
+            var sp = new DocumentSearchParameters { };
+            if (!SearchName.IsEmpty() || !SearchDescription.IsEmpty())
+            {
+                sp.SearchName = SearchName;
+                sp.SearchDescription = SearchDescription;
+            }
+            List<ArchiveDocument> docs =  DBController.DbDocument.GetDocuments(sp);
             return docs;
         }
 
@@ -92,8 +101,8 @@ namespace WebSimplify
                         CreationDate = DateTime.Now,
                         Data = FileUploadControl.FileBytes,
                         LastKnownPath = Path.GetFileName(FileUploadControl.FileName),
-                        Name = ((TextBox)row.FindControl("txName")).Text,
-                        Description = ((TextBox)row.FindControl("txIdesc")).Text,
+                        Name = GetTextBoxValue(row, "txName"),
+                        Description = GetTextBoxValue(row, "txIdesc"),
                     };
 
                     
@@ -110,10 +119,10 @@ namespace WebSimplify
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 var docA = (ArchiveDocument)e.Row.DataItem;
-                ((Label)e.Row.FindControl("lblName")).Text = docA.Name.ToString();
-                ((Label)e.Row.FindControl("lblDescription")).Text = docA.Description.ToString();
-                ((Label)e.Row.FindControl("lblCreation")).Text = docA.CreationDate.ToShortDateString();
-                ((ImageButton)e.Row.FindControl("btnDownload")).CommandArgument = docA.Id.ToString();
+                SetLabelValue(e.Row, "lblName", docA.Name);
+                SetLabelValue(e.Row, "lblDescription", docA.Description);
+                SetLabelValue(e.Row, "lblCreation", docA.CreationDate.ToShortDateString());
+                SetImageButtonArgument(e.Row, "btnDownload", docA.Id);
             }
         }
 
@@ -123,6 +132,21 @@ namespace WebSimplify
             ArchiveDocument doc = DBController.DbDocument.GetDocumentArchiveFull(docId);
 
             DownloadFile(doc.LastKnownPath, doc.Data);
+        }
+
+        protected void btnSearch_Command(object sender, CommandEventArgs e)
+        {
+            var row = (sender as ImageButton).NamingContainer as GridViewRow;
+            
+            this.SearchName = GetTextBoxValue(row,"txName");
+            this.SearchDescription = GetTextBoxValue(row, "txIdesc"); 
+
+            RefreshGrids();
+        }
+
+        protected void gvDocs_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            Gv_PageIndexChanging(sender, e);
         }
     }
 }

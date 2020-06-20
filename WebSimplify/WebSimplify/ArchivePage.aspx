@@ -29,6 +29,11 @@
                                 <asp:TextBox runat="server" ID="txIdesc" CssClass="gridtextinput"></asp:TextBox>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText=" חיפוש ">
+                            <ItemTemplate>
+                                <asp:ImageButton runat="server" ID="btnSearch" OnCommand="btnSearch_Command" CssClass="gridbutton" ImageUrl="Img/search.png"></asp:ImageButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText=" הוספה ">
                             <ItemTemplate>
                                 <asp:ImageButton runat="server" ID="btnAdd" OnCommand="btnAdd_Command" CssClass="gridbutton" ImageUrl="Img/add.png"></asp:ImageButton>
@@ -50,7 +55,7 @@
     <div class="spanel">
         <div class="sgridcontainer">
             <asp:GridView ID="gvDocs" runat="server"
-                OnRowDataBound="gvDocs_RowDataBound" AllowPaging="False"
+                OnRowDataBound="gvDocs_RowDataBound" AllowPaging="true" OnPageIndexChanging="gvDocs_PageIndexChanging"
                 CssClass="synngridstyled " ItemStyle-Width="100%" ControlStyle-Width="100%"
                 AutoGenerateColumns="false">
                 <Columns>

@@ -329,8 +329,10 @@ namespace SynnWebOvi
             }
             gv.DataSource = data;
             gv.DataBind();
+            gv.PageIndexChanging += Gv_PageIndexChanging;
         }
-        
+
+       
 
         internal virtual string GetGridSourceMethodName(string gridId)
         {
@@ -403,6 +405,38 @@ namespace SynnWebOvi
             Response.Buffer = true;
             ms.WriteTo(Response.OutputStream);
             Response.End();
+        }
+
+        public string GetTextBoxValue(GridViewRow row, string controlId)
+        {
+            return ((TextBox)row.FindControl(controlId)).Text; 
+        }
+
+        public void SetTextBoxValue(GridViewRow row, string controlId, string vallue)
+        {
+            ((TextBox)row.FindControl(controlId)).Text = vallue;
+        }
+
+        public string GetLabelValue(GridViewRow row, string controlId)
+        {
+            return ((TextBox)row.FindControl(controlId)).Text;
+        }
+
+        public void SetLabelValue(GridViewRow row, string controlId, string vallue)
+        {
+            ((Label)row.FindControl(controlId)).Text = vallue;
+        }
+
+        public void SetImageButtonArgument(GridViewRow row, string controlId, int vallue)
+        {
+            ((ImageButton)row.FindControl(controlId)).CommandArgument = vallue.ToString();
+        }
+
+        internal void Gv_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            var gv = (sender as GridView);
+            gv.PageIndex = e.NewPageIndex;
+            RefreshGrid(gv);
         }
     }
 

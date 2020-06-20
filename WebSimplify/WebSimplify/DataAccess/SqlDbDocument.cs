@@ -16,12 +16,15 @@ namespace WebSimplify
         {
         }
 
-        public List<ArchiveDocument> GetDocuments(DocumentSearchParameters documentSearchParameters)
+        public List<ArchiveDocument> GetDocuments(DocumentSearchParameters dp)
         {
             SetSqlFormat("select * from {0}", SynnDataProvider.TableNames.ArchiveDocument);
             ClearParameters();
-            if(documentSearchParameters.ArchiveDocumentId.HasValue)
-                AddSqlWhereField("Id", documentSearchParameters.ArchiveDocumentId.Value);
+            if(dp.ArchiveDocumentId.HasValue)
+                AddSqlWhereField("Id", dp.ArchiveDocumentId.Value);
+            if(dp.SearchName.NotEmpty())
+                AddSqlWhereField("Name", dp.SearchName  );
+
             var lst = new List<ArchiveDocument>();
             FillList(lst, typeof(ArchiveDocument));
             return lst;
